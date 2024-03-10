@@ -14,9 +14,9 @@
       "londonBlock": 0,
       "arrowGlacierBlock": 0,
       "grayGlacierBlock": 0,
-      "MuSeal": {
-        "period": 5,
-        "epoch": 30000
+      "clique": {
+        "period": 0,
+        "epoch": 2
       }
     },
     "difficulty": "1",

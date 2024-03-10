@@ -19,12 +19,13 @@ package ethconfig
 
 import (
 	"errors"
-	"time"
 	"fmt"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/consensus"
 	"github.com/ethereum/go-ethereum/consensus/beacon"
 	"github.com/ethereum/go-ethereum/consensus/clique"
+	"time"
+	"github.com/ethereum/go-ethereum/consensus/museal"
 	"github.com/ethereum/go-ethereum/consensus/ethash"
 	"github.com/ethereum/go-ethereum/core"
 	"github.com/ethereum/go-ethereum/core/txpool/blobpool"
@@ -165,7 +166,7 @@ type Config struct {
 // Clique is allowed for now to live standalone, but ethash is forbidden and can
 // only exist on already merged networks.
 func CreateConsensusEngine(config *params.ChainConfig, db ethdb.Database) (consensus.Engine, error) {
-	if config.MuSeal != nil{
+	if config.MuSeal != nil {
 		fmt.Println("MuSeal is configured as consensus engine")
 		return beacon.New(MuSeal.New(config.MuSeal, db)), nil
 	}
